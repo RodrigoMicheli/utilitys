@@ -16,8 +16,8 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("Utilitys API - Central de Utilitários")
                         .version("1.0.0")
-                        .description("API REST em Java 21 + Spring Boot 3 para Conversão de Unidades, " +
-                                "Conversão e Cálculos de Moedas, Números por Extenso (PT-BR) e Utilitários Gerais.")
+                        .description("API REST em Java 20 + Spring Boot 3 para Conversão de Unidades, " +
+                                "Conversão e Cálculos de Moedas, Números por Extenso (PT-BR) e Criptografia/Geração de Senhas (BCrypt).")
                         .contact(new Contact()
                                 .name("Utilitys Team")
                                 .email("contato@utilitys.com"))

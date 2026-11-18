@@ -68,6 +68,9 @@ public final class NumeroPorExtensoUtil {
         }
 
         BigDecimal normalizado = valor.stripTrailingZeros();
+        if (normalizado.abs().compareTo(BigDecimal.valueOf(MAX_SUPPORTED)) > 0) {
+            throw new UtilityException("Número fora do limite suportado (máx: 999 trilhões).");
+        }
         if (normalizado.scale() <= 0) {
             return converterInteiro(normalizado.longValueExact());
         }
@@ -78,6 +81,9 @@ public final class NumeroPorExtensoUtil {
         long parteInteira = abs.longValue();
         BigDecimal fracao = abs.subtract(BigDecimal.valueOf(parteInteira));
         String fracaoStr = fracao.toPlainString().substring(2); // remove "0."
+        if (fracaoStr.length() > 15) {
+            throw new UtilityException("Número de casas decimais excede o limite suportado (máx: 15 casas).");
+        }
         long valorFracao = Long.parseLong(fracaoStr);
 
         StringBuilder sb = new StringBuilder();

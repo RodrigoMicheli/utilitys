@@ -70,8 +70,12 @@ public final class UnitConverterUtil {
         }
 
         public static LengthUnit fromString(String value) {
+            if (value == null || value.isBlank()) {
+                throw new UtilityException("Unidade de comprimento obrigatória.");
+            }
+            String normalized = value.trim();
             for (LengthUnit unit : values()) {
-                if (unit.name().equalsIgnoreCase(value) || unit.symbol.equalsIgnoreCase(value)) {
+                if (unit.name().equalsIgnoreCase(normalized) || unit.symbol.equalsIgnoreCase(normalized)) {
                     return unit;
                 }
             }
@@ -104,8 +108,12 @@ public final class UnitConverterUtil {
         }
 
         public static MassUnit fromString(String value) {
+            if (value == null || value.isBlank()) {
+                throw new UtilityException("Unidade de massa obrigatória.");
+            }
+            String normalized = value.trim();
             for (MassUnit unit : values()) {
-                if (unit.name().equalsIgnoreCase(value) || unit.symbol.equalsIgnoreCase(value)) {
+                if (unit.name().equalsIgnoreCase(normalized) || unit.symbol.equalsIgnoreCase(normalized)) {
                     return unit;
                 }
             }
@@ -129,6 +137,9 @@ public final class UnitConverterUtil {
         }
 
         public static TemperatureUnit fromString(String value) {
+            if (value == null || value.isBlank()) {
+                throw new UtilityException("Unidade de temperatura obrigatória.");
+            }
             String normalized = value.replace("°", "").trim();
             for (TemperatureUnit unit : values()) {
                 if (unit.name().equalsIgnoreCase(normalized) || unit.symbol.equalsIgnoreCase(normalized)) {
@@ -163,8 +174,12 @@ public final class UnitConverterUtil {
         }
 
         public static VolumeUnit fromString(String value) {
+            if (value == null || value.isBlank()) {
+                throw new UtilityException("Unidade de volume obrigatória.");
+            }
+            String normalized = value.trim();
             for (VolumeUnit unit : values()) {
-                if (unit.name().equalsIgnoreCase(value) || unit.symbol.equalsIgnoreCase(value)) {
+                if (unit.name().equalsIgnoreCase(normalized) || unit.symbol.equalsIgnoreCase(normalized)) {
                     return unit;
                 }
             }
@@ -195,8 +210,12 @@ public final class UnitConverterUtil {
         }
 
         public static SpeedUnit fromString(String value) {
+            if (value == null || value.isBlank()) {
+                throw new UtilityException("Unidade de velocidade obrigatória.");
+            }
+            String normalized = value.trim();
             for (SpeedUnit unit : values()) {
-                if (unit.name().equalsIgnoreCase(value) || unit.symbol.equalsIgnoreCase(value)) {
+                if (unit.name().equalsIgnoreCase(normalized) || unit.symbol.equalsIgnoreCase(normalized)) {
                     return unit;
                 }
             }
@@ -228,8 +247,12 @@ public final class UnitConverterUtil {
         }
 
         public static DataStorageUnit fromString(String value) {
+            if (value == null || value.isBlank()) {
+                throw new UtilityException("Unidade de armazenamento obrigatória.");
+            }
+            String normalized = value.trim();
             for (DataStorageUnit unit : values()) {
-                if (unit.name().equalsIgnoreCase(value) || unit.symbol.equalsIgnoreCase(value)) {
+                if (unit.name().equalsIgnoreCase(normalized) || unit.symbol.equalsIgnoreCase(normalized)) {
                     return unit;
                 }
             }
